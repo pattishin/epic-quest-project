@@ -4,9 +4,9 @@ steps:
     args: 
       - 'build'
       - '-t'
-      - '${REGION}-docker.pkg.dev/${PROJECT_ID}/epic-quest/server-side:${IMAGE_TAG}'
+      - '${_REGION}-docker.pkg.dev/${_PROJECT_ID}/epic-quest/server-side:${_IMAGE_TAG}'
       - '.'
 
 # Store in Artifact Registry
 images:
-  - '${REGION}-docker.pkg.dev/${PROJECT_ID}/epic-quest/server-side:${IMAGE_TAG}'
+  - '${_REGION}-docker.pkg.dev/${_PROJECT_ID}/epic-quest/server-side:${_IMAGE_TAG}'
