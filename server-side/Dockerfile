@@ -1,11 +1,14 @@
+# syntax=docker/dockerfile:1
 
-# Use the official lightweight Python image.
-# https://hub.docker.com/_/python
-FROM python:3.10-slim
+FROM node:12.18.1
+ENV NODE_ENV=production
 
-# Allow statements and log messages to immediately appear in the Knative logs
-ENV PYTHONUNBUFFERED True
+WORKDIR /app
 
-# Copy local code to the container image
-ENV APP_HOME /app
-WORKDIR $APP_HOME
+COPY ["package.json", "package-lock.json*", "./"]
+
+RUN npm install --production
+
+COPY . .
+
+CMD [ "node", "server.js" ]
