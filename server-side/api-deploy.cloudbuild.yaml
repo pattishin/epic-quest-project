@@ -1,0 +1,22 @@
+steps:
+  # Print the full Pub/Sub message for debugging
+  - name: gcr.io/cloud-builders/gcloud
+    entrypoint: /bin/bash
+    args:
+      - '-c'
+      - |
+        echo ${_BODY}
+
+  # Cloud Run Deploy
+  - name: gcr.io/cloud-builders/gcloud
+    args:
+      - run
+      - deploy
+      - ${_SERVICE}
+      - --image=${_IMAGE_NAME}
+      - --region=${_REGION}
+      - --revision-suffix=${_REVISION}
+      - --project=${_PROJECT_ID}
+      - --allow-unauthenticated
+      - --no-traffic
+      - --tag=latest
