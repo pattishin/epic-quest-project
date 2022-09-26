@@ -18,5 +18,4 @@ steps:
       - --revision-suffix=${_REVISION}
       - --project=${_PROJECT_ID}
       - --allow-unauthenticated
-      - --no-traffic
       - --tag=latest
