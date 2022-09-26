@@ -7,7 +7,7 @@ steps:
       - |
         echo ${_BODY}
 
-  # Cloud Run Deploy
+  # Cloud Run Deployment
   - name: gcr.io/cloud-builders/gcloud
     args:
       - run
